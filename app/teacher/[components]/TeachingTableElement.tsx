@@ -77,7 +77,7 @@ const TeachingTableElement = ({
           <Link href={`/teacher/viewTeaching/${id}`} className="w-full">{title}</Link>
         </TableCell>
 
-        <TableCell className="w-40 truncate"><Link href={`/teacher/viewTeacing/${id}`} className="w-full">{description}</Link></TableCell>
+        <TableCell className="w-40 truncate"><Link href={`/teacher/viewTeaching/${id}`} className="w-full">{description}</Link></TableCell>
 
         <TableCell className="w-40 truncate text-right">
           <Link href={`/teacher/viewTeaching/${id}`} className="w-full">{new Date(updatedAt).toLocaleString()}</Link>
