@@ -76,12 +76,10 @@ export const TeacherFormContextProvider = ({
     console.log(postContent);
     if (
       !postContent.title ||
-      !postContent.imageUrl ||
       !postContent.imageColor ||
       !postContent.description ||
       postContent.todaysWord === null ||
-      !postContent.content ||
-      !postContent.comment
+      !postContent.content
     ) {
       throw new Error("Missing required fields");
     }
