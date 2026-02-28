@@ -1,12 +1,13 @@
 "use client";
 
 import { UserAuth } from "@/app/context/auth-context";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 const MainPageContent = () => {
   const { user } = UserAuth();
   const router = useRouter();
+  console.log(user)
 
   useEffect(() => {
     if (user) {
