@@ -51,7 +51,7 @@ const MainTeachings = () => {
           href="/main/ViewTeachings/"
           className="flex justify-between items-center px-5 py-3 my-3"
         >
-          <p className="font-bold text-[#222] text-xl">Explore Teachings</p>
+          <p className="font-bold text-[#222] text-xl">Comment replies</p>
           <MoveRight />
         </Link>
       </div>
