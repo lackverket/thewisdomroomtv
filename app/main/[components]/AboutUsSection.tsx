@@ -42,7 +42,7 @@ const AboutUsSection = () => {
               Read more...
             </div>
           </div>
-          <div className="flex justify-start items-center gap-6 bg-blue-200 ">
+          <div className="flex justify-start items-center gap-6">
             <Link href="">
               <Image
                 src="/fbsvg.svg"
