@@ -74,7 +74,7 @@ const IndexNavigation = () => {
         </li>
         <li className="lg:hidden flex justify-center items-center cursor-pointer">
           <div className="cursor-pointer lg:hidden mx-6">
-            <Search className="max-sm:size-6"/>
+            <Search className="max-sm:size-6" onClick={onOpenSearch}/>
           </div>
           <Menu className="size-6" onClick={onOpenMenu} />
         </li>
