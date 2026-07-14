@@ -30,7 +30,7 @@ const MainNavigation = () => {
           <Menu />
         </li>
         <li>
-          <p className="font-bold text-[1.2rem]">The Wisdom Room</p>
+          <p className="font-bold text-[1.2rem] font-fraunces">The Wisdom Room</p>
         </li>
 
         <li className="hidden md:flex justify-between items-center gap-4 mx-4">

@@ -14,7 +14,7 @@ const AskAQuestion = () => {
         <TextareaAutosize
           data-slot="input-group-control"
           className="flex field-sizing-content min-h-16 w-full resize-none rounded-md bg-transparent px-3 py-2.5 text-base transition-[color,box-shadow] outline-none md:text-sm"
-          placeholder="Autoresize textarea..."
+          placeholder="Curious? Send a question"
         />
         <InputGroupAddon align="block-end">
           <InputGroupButton className="ml-auto" size="sm" variant="default">

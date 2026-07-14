@@ -5,7 +5,7 @@ import MainTeachingItem from "./MainTeachingItem";
 import { useEffect, useState } from "react";
 import { getAllTeachings, getTeachingQty } from "@/actions/teaching-actions";
 import Link from "next/link";
-import { Spinner } from "@/components/ui/spinner";
+import { TeachingLoaders } from "./LoadingComp";
 
 interface particularTeachingItem {
   id: string;
@@ -44,14 +44,14 @@ const MainTeachings = () => {
     getTeaching();
   }, []);
   return (
-    <section className="w-full">
+    <section className="w-full font-manrope bg-gray-100">
       {/* Header */}
       <div className="w-full">
         <Link
           href="/main/ViewTeachings/"
           className="flex justify-between items-center px-5 py-3 my-3"
         >
-          <p className="font-bold text-[#222] text-xl">Comment replies</p>
+          <p className="font-bold text-[#222] text-xl font-hanken">Inspired Messages</p>
           <MoveRight />
         </Link>
       </div>
@@ -63,7 +63,7 @@ const MainTeachings = () => {
           className="
             flex gap-4 px-5 pb-6
             snap-x snap-mandatory
-            md:grid md:grid-cols-2 md:gap-6
+            md:grid md:grid-cols-3 md:gap-6
           "
         >
           {error && !loading && (
@@ -74,14 +74,7 @@ const MainTeachings = () => {
             </div>
           )}
           {!error && loading && (
-            <div className="w-full h-full relative snap-start flex justify-center items-center">
-              <p className="flex items-center gap-2 font-bold">
-                <span>Loading</span>{" "}
-                <span>
-                  <Spinner />
-                </span>
-              </p>
-            </div>
+            <TeachingLoaders />
           )}
           {!error &&
             !loading &&

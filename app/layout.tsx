@@ -1,21 +1,12 @@
 "use client";
 
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { geistSans, geistMono, fraunces, manrope, chivo, fira, hanken } from "./font";
 import "./globals.css";
 import { AuthContextProvider } from "./context/auth-context";
 import { Toaster } from "sonner";
 import { TeacherFormContextProvider } from "./context/teaching-form-context";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 // export const metadata: Metadata = {
 //   title: "Create Next App",
@@ -30,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable} ${manrope.variable} ${chivo.variable} ${fira.variable} ${hanken.variable} antialiased`}
       >
         <AuthContextProvider>
           <TeacherFormContextProvider>

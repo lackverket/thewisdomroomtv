@@ -17,7 +17,7 @@ interface MainTeachingItemProps {
   bannerColour: string | null;
 }
 
-function limitWords(text: string, maxWords: number) {
+export function limitWords(text: string, maxWords: number) {
   // Use trim() to remove leading/trailing whitespace
   const trimmedText = text.trim();
 

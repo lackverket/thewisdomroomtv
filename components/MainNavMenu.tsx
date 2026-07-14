@@ -27,9 +27,9 @@ const MainNavMenu = ({ isOpen, onClose }: MainNavMenuProps) => {
     // Full viewport overlay with dark semi-transparent bg
     <div
       className={cn(
-        "fixed inset-0 z-50 bg-black/70 transition-opacity",
+        "fixed inset-0 z-50 bg-black/70 transition-opacity font-fira",
         "backdrop-blur-sm",
-        "md:hidden", // Only show overlay on mobile; desktop handled differently
+        "lg:hidden", // Only show overlay on mobile; desktop handled differently
       )}
       onClick={onClose}
       aria-hidden="true"
@@ -37,7 +37,7 @@ const MainNavMenu = ({ isOpen, onClose }: MainNavMenuProps) => {
       {/* White menu container - 40% width on mobile, full height */}
       <div
         className={cn(
-          "fixed top-0 left-0 h-full w-[40vw] min-w-[200px] max-w-[400px]",
+          "fixed top-0 left-0 h-full max-sm:w-[90vw] w-[40vw] min-w-[200px]",
           "bg-white shadow-2xl flex flex-col",
           "animate-in slide-in-from-left-5 duration-300",
           "border-r border-gray-200",
@@ -48,7 +48,7 @@ const MainNavMenu = ({ isOpen, onClose }: MainNavMenuProps) => {
         aria-label="Main navigation menu"
       >
         {/* Header Section */}
-        <div className="flex items-center justify-between p-6 border-b border-gray-200">
+        <div className="flex items-center justify-start gap-5 p-6 border-b border-gray-200">
           <Button
             variant="ghost"
             size="icon"
@@ -56,10 +56,10 @@ const MainNavMenu = ({ isOpen, onClose }: MainNavMenuProps) => {
             aria-label="Close menu"
             className="rounded-full hover:bg-gray-100"
           >
-            <X className="h-5 w-5 text-gray-700" />
+            <X className="size-7 text-gray-700" />
           </Button>
-          <h1 className="text-xl font-bold text-gray-800 tracking-tight">
-            The Wisdom Room
+          <h1 className="text-xl font-bold font-fraunces text-gray-800 tracking-tight">
+            TheWisdomRoom
           </h1>
         </div>
 
@@ -68,16 +68,16 @@ const MainNavMenu = ({ isOpen, onClose }: MainNavMenuProps) => {
           <p className="text-sm font-medium text-gray-500 mb-3 pl-1">Go To</p>
           <nav className="flex flex-col space-y-1">
             {[
-              { href: "/main/Interpretations", label: "Interpretation" },
+              { href: "/main/ViewTeachings", label: "Inspired Teachings" },
+              { href: "/main/Interpretations", label: "Videos" },
               { href: "/main/Questions", label: "Questions" },
-              { href: "/main/AskAQuestion", label: "Ask a Question" },
-              { href: "/main/ViewTeachings", label: "View Teachings" },
+              { href: "/main/AskAQuestion", label: "Chat" },
             ].map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "flex items-center py-3 px-4 rounded-lg",
+                  "flex items-center py-3 px-4 rounded-lg text-[1.1rem]",
                   "text-gray-700 hover:bg-gray-50 hover:text-gray-900",
                   "transition-colors font-medium",
                   "focus:outline-none focus:bg-gray-100 focus:ring-2 focus:ring-blue-500",
