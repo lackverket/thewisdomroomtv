@@ -94,7 +94,7 @@ const MainTopicsSection = () => {
               )}
             </div>
             <div className="my-3">
-              <Button className="px-7">Explore Inspired Teachings</Button>
+              <Button className="px-7"><Link href="/main/ViewTeachings/" className="w-full">Explore Inspired Teachings</Link></Button>
             </div>
           </div>
         </div>
@@ -161,9 +161,9 @@ const MainTopicsSection = () => {
                   the earth” — the emotions come from the earth. But the spirit
                   and soul (Ecc. 12:3) come from the sprout.
                 </div>
-                <div className="font-bold absolute right-0 bottom-0 bg-gray-200/60 px-3">
+                <Link href="/main/ViewTeachings/cmny4nxu10001i0wf2wd4ninn" className="hover:text-gray-700 hover:bg-gray-400 transition-all duration-75 ease-in font-bold absolute right-0 bottom-0 bg-gray-200/60 px-3">
                   Read more...
-                </div>
+                </Link>
               </div>
             </div>
           </Link>
@@ -228,9 +228,9 @@ const MainTopicsSection = () => {
                   revealed, we are warned not to speak against it, regardless of
                   national or denominational traditions. God bless.
                 </div>
-                <div className="font-bold absolute right-0 bottom-0 bg-gray-200/60 px-3">
+                <Link href="/main/ViewTeachings/cmny5fliq000204gs5tw5zgx8" className="font-bold absolute right-0 bottom-0 bg-gray-200/60 px-3 hover:text-gray-700 hover:bg-gray-400 transition-all duration-75 ease-in">
                   Read more...
-                </div>
+                </Link>
               </div>
             </div>
           </Link>

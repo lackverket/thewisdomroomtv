@@ -78,7 +78,7 @@ const SearchPage = ({ isOpen, onClose }: SearchPageProps) => {
           <div className="flex flex-col space-y-3 max-w-290 mx-auto">
             {[
               { href: "/main/ViewTeachings", label: "Inspired Teachings" },
-              { href: "/main/Interpretations", label: "Videos" },
+              { href: "/main/videos", label: "Videos" },
               { href: "/main/Questions", label: "Questions" },
               { href: "/main/AskAQuestion", label: "Chat" },
             ].map((item) => (

@@ -1,23 +1,26 @@
 import MainGreeting from "./[components]/MainGreeting";
-import { WordSection } from "./[components]/WordSection";
 import MainTeachings from "./[components]/MainTeachings";
 import MainPopularQuestions from "./[components]/MainPopularQuestions";
-import AskAQuestionSection from "./[components]/AskAQuestionSection";
-import MainNavigation from "@/components/MainNavigation";
-import BigTextSection from "./[components]/BigTextSection";
+import IndexNavigation from "@/components/IndexNavigation";
+import AboutUsSection from "./[components]/AboutUsSection";
+import MainTopicsSection from "./[components]/MainTopicsSection";
+import YouTubeVideoSection from "./[components]/YouTubeVideoSection";
 
 const MainPage = () => {
   return (
     <>
-      <MainNavigation />
-      <div className="max-w-200 mx-auto pb-8 w-full min-h-screen flex flex-col overflow-x-hidden">
-        <MainGreeting />
-        <BigTextSection />
+    <IndexNavigation />
+      <section className="max-w-290 mx-auto pb-8 w-full min-h-screen flex flex-col overflow-x-hidden">
+      <MainTopicsSection />
+      <div className="max-w-290 mx-auto w-full">
+        {/* <MainGreeting /> */}
         <MainTeachings />
+        <YouTubeVideoSection />
         <MainPopularQuestions />
-        <AskAQuestionSection />
-        {/* <WordSection /> */}
+        <AboutUsSection />
+        
       </div>
+    </section>
     </>
   );
 };

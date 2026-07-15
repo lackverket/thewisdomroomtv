@@ -3,7 +3,7 @@ import NoContentText from "../[components]/NoContentText";
 import IndexNavigation from "@/components/IndexNavigation";
 import PersonalMessageSection from "../[components]/PersonalMessageSection";
 
-const Interpretations = () => {
+const VideosPage = () => {
   return (
     <>
       <IndexNavigation />
@@ -14,4 +14,4 @@ const Interpretations = () => {
   );
 };
 
-export default Interpretations;
+export default VideosPage;

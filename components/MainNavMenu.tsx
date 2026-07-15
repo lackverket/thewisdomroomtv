@@ -6,6 +6,7 @@ import { X } from "lucide-react";
 import { cn } from "@/lib/utils"; // Ensure you have cn utility (standard in shadcn)
 import { UserAuth } from "@/app/context/auth-context";
 import { redirect } from "next/navigation";
+import { useEffect } from "react";
 
 interface MainNavMenuProps {
   isOpen: boolean;
@@ -13,14 +14,24 @@ interface MainNavMenuProps {
 }
 
 const MainNavMenu = ({ isOpen, onClose }: MainNavMenuProps) => {
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+
+    return () => document.body.classList.remove("overflow-hidden");
+  }, [isOpen]);
+
   if (!isOpen) return null;
-  const { logOut } = UserAuth();
+  const { logOut, user } = UserAuth();
 
   const logUserOut = () => {
     onClose();
     logOut();
     localStorage.removeItem("adminStatus");
-    redirect("/login")
+    redirect("/login");
   };
 
   return (
@@ -69,7 +80,7 @@ const MainNavMenu = ({ isOpen, onClose }: MainNavMenuProps) => {
           <nav className="flex flex-col space-y-1">
             {[
               { href: "/main/ViewTeachings", label: "Inspired Teachings" },
-              { href: "/main/Interpretations", label: "Videos" },
+              { href: "/main/videos", label: "Videos" },
               { href: "/main/Questions", label: "Questions" },
               { href: "/main/AskAQuestion", label: "Chat" },
             ].map((item) => (
@@ -90,15 +101,35 @@ const MainNavMenu = ({ isOpen, onClose }: MainNavMenuProps) => {
           </nav>
         </div>
 
+        <div>
+          <Link
+            href=""
+            className="my-5 text-gray-500 hover:bg-gray-50 hover:text-gray-900 flex justify-start items-center py-3 px-4 rounded-lg text-[1.1rem]"
+          >
+            About Us
+          </Link>
+        </div>
+
         {/* Footer Section - Sticks to bottom */}
         <div className="p-6 border-t border-gray-200">
-          <Button
-            variant="destructive"
-            className="w-full py-6 text-base font-medium"
-            onClick={logUserOut}
-          >
-            Log Out
-          </Button>
+          {user ? (
+            <Button
+              variant="destructive"
+              className="w-full py-6 text-base font-medium"
+              onClick={logUserOut}
+            >
+              Log Out
+            </Button>
+          ) : (
+            <Button
+              variant="outline"
+              className="bg-black w-full py-6 text-base font-medium text-white"
+            >
+              <Link href="/login" className="w-full">
+                Sign up
+              </Link>
+            </Button>
+          )}
         </div>
       </div>
     </div>

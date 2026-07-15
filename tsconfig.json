@@ -30,7 +30,7 @@
     ".next/dev/types/**/*.ts",
     "**/*.mts",
     "app/main/Questions",
-    "app/main/Interpretations",
+    "app/main/videos",
     "app/main/AskAQuestion",
     "app/main/ViewTeachings"
   ],

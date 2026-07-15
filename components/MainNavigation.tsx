@@ -35,7 +35,7 @@ const MainNavigation = () => {
 
         <li className="hidden md:flex justify-between items-center gap-4 mx-4">
           <p className="hover:text-gray-400 transition-all duration-75 ease-in">
-            <Link href="/main/Interpretations">Interpretation</Link>
+            <Link href="/main/videos">Videos</Link>
           </p>
           <p className="hover:text-gray-400 transition-all duration-75 ease-in">
             <Link href="/main/Questions">Questions</Link>
