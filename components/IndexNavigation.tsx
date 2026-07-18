@@ -40,7 +40,7 @@ const IndexNavigation = () => {
                 width={50}
                 height={50}
                 alt="The Wisdom room logo"
-                className="h-6 w-auto"
+                className="h-9 w-auto"
               />
             </div>
             <div className="bg-black/80 w-[0.1rem] h-6 max-[300px]:hidden"></div>
