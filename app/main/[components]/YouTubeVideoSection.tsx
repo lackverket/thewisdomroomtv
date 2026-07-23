@@ -43,10 +43,19 @@ const YouTubeVideoSection = () => {
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             ></iframe>
+            <iframe
+              className="rounded-xl"
+              width="500"
+              height="315"
+              src="https://www.youtube.com/embed/filirSvXOYU?si=5PbcY1ilKYPCNdA-"
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            ></iframe>
             <div className="px-20 h-80 flex justify-center items-center md:hidden">
-              <div className="py-10 px-10 rounded-full bg-gray-100 flex justify-center items-center shadow-lg">
+              <Link href="/main/videos" className="py-10 px-10 rounded-full bg-gray-100 flex justify-center items-center shadow-lg">
                 <MoveRight className="size-7 text-[#777]" />
-              </div>
+              </Link>
             </div>
           </div>
         </div>

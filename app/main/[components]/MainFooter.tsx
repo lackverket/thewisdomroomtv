@@ -11,9 +11,9 @@ const MainFooter = () => {
           <div className='flex flex-col gap-3'>
             <p className='font-bold text-lg'>About</p>
             <div className='flex flex-col justify-between items-center gap-1'>
-              <Link href="/">About Us</Link>
+              <Link href="/main/aboutus">About Us</Link>
               <Link href="/">Our APIs</Link>
-              <Link href="/">Mission</Link>
+              <Link href="/main/aboutus">Mission</Link>
             </div>
           </div>
           <div className='flex flex-col gap-3'>

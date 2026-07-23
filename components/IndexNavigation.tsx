@@ -70,7 +70,7 @@ const IndexNavigation = () => {
 
         <li className="flex justify-between items-center max-md:gap-2 gap-5 font-fira">
           <div className="flex gap-2 max-lg:hidden">
-            <Link href="/">
+            <Link href="/main/aboutus">
               <Button variant="link" className="cursor-pointer">
                 About us
               </Button>

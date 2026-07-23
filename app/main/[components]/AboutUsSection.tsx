@@ -38,12 +38,12 @@ const AboutUsSection = () => {
             delectus qui! Sit laudantium delectus eos at dicta laborum assumenda
             blanditiis pariatur provident voluptas maxime aperiam id voluptatum
             temporibus, perferendis voluptatem laboriosam nobis?
-            <div className="absolute bottom-0 right-0 px-2 bg-gray-50/50 font-bold font-hanken">
+            <Link href="/main/aboutus" className="absolute bottom-0 right-0 px-2 bg-gray-50/50 font-bold font-hanken">
               Read more...
-            </div>
+            </Link>
           </div>
           <div className="flex justify-start items-center gap-6">
-            <Link href="">
+            <Link href="https://web.facebook.com/Thewisdomroomtv/videos/158231059711080?_rdc=1&_rdr#">
               <Image
                 src="/fbsvg.svg"
                 width={40}
@@ -51,7 +51,7 @@ const AboutUsSection = () => {
                 alt="facebook svg"
               />
             </Link>
-            <Link href="">
+            <Link href="https://www.instagram.com/the_wisdom_room_tv?igsh=MTM4cmU4MHByYzV5MQ==">
               <Image
                 src="/igsvg.svg"
                 width={35}
@@ -59,10 +59,10 @@ const AboutUsSection = () => {
                 alt="instagram svg"
               />{" "}
             </Link>
-            <Link href="">
+            <Link href="https://x.com/God2Evolution?s=20">
               <Image src="/xsvg.svg" width={35} height={35} alt="X svg" />
             </Link>
-            <Link href="">
+            <Link href="https://youtube.com/@thewisdomroom?si=E9f7si1zQbI1P0El">
               <Image
                 src="/ytsvg.svg"
                 width={35}

@@ -7,7 +7,7 @@ export default function MainLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <main className="w-screen min-h-screen flex flex-col">
+    <main className="w-full min-h-screen flex flex-col">
         {children}
         <MainFooter />
     </main>
