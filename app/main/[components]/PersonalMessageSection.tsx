@@ -55,6 +55,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip"
 import Link from "next/link"
+import { useSearchParams } from "next/navigation"
 
 const PersonalMessageSection = () => {
   const [messages, setMessages] = useState<
@@ -64,6 +65,8 @@ const PersonalMessageSection = () => {
       text: string
     }[]
   >([])
+  const searchParams = useSearchParams()
+  const username = searchParams.get("username")
 
   const [input, setInput] = useState("")
 
@@ -90,7 +93,7 @@ const PersonalMessageSection = () => {
         <div className="relative flex flex-col gap-4">
           <Card className="mx-auto border-0 rounded-none h-[560px] w-full gap-0">
             <CardHeader className="gap-1 border-b">
-              <CardTitle>Hello,</CardTitle>
+              <CardTitle>Hello, { username && <span>{username}</span> }</CardTitle>
               <CardDescription>
                 Conversations.
               </CardDescription>

@@ -1,7 +1,8 @@
 "use client";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 function limitWords(text: string, wordamount: number) {
   return text.split(" ").slice(0, wordamount).join(" ");
@@ -9,9 +10,29 @@ function limitWords(text: string, wordamount: number) {
 
 const MainTopicsSection = () => {
   const [mainExpandStatus, setMainExpandStatus] = useState<boolean>(false);
+  const [chatNameError, setChatNameError] = useState<boolean>(false);
+  const chatRef = useRef<HTMLInputElement>(null);
+  const router = useRouter();
+
   const toggleMainExpand = () => {
     setMainExpandStatus((prevState) => !prevState);
   };
+
+  const onSubmitAskChat = () => {
+    if (chatRef.current?.value === "") {
+      setChatNameError(true);
+      return;
+    }
+    setChatNameError(false);
+    router.push(`/main/AskAQuestion?username=${chatRef.current?.value}`);
+  };
+
+  const onChatNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.value.length == 1) {
+      setChatNameError(false);
+    }
+  };
+
   return (
     <section className=" mt-6 mb-10 px-2">
       <div className="my-2">
@@ -20,12 +41,16 @@ const MainTopicsSection = () => {
         </h1>
       </div>
       <div className=" grid grid-cols-1 max-md:gap-4 gap-2 md:grid-cols-2 md:grid-rows-3">
-        <div className={`${!mainExpandStatus ? "md:row-span-3" : "md:col-span-2 md:row-span-3 mb-5"} md:mr-3 px-5 py-3 bg-white shadow-[2px_2px_3px_1px_rgba(0,0,0,0.49)]`}>
+        <div
+          className={`${!mainExpandStatus ? "md:row-span-3" : "md:col-span-2 md:row-span-3 mb-5"} md:mr-3 px-5 py-3 bg-white shadow-[2px_2px_3px_1px_rgba(0,0,0,0.49)]`}
+        >
           <div className="flex flex-col justify-evenly items-center gap-2 font-manrope text-[#444]">
             <p className="font-bold my-2 py-2 font-chivo text-3xl  border-b border-black/20 text-center">
               What is the Word?
             </p>
-            <div className={`px-2 relative max-md:hidden ${mainExpandStatus ? "" : "line-clamp-25"}`}>
+            <div
+              className={`px-2 relative max-md:hidden ${mainExpandStatus ? "" : "line-clamp-25"}`}
+            >
               What is The Word? Jesus said: “Ye do err, not knowing the
               scriptures, nor the power of God.” Notice something. Jesus
               distinguishes between “the scriptures” and “the power of God.”
@@ -360,56 +385,94 @@ const MainTopicsSection = () => {
             </div>
             <div>
               <h2 className="font-bold text-[#444] text-[1.2rem]">
-               Why is Mary not recognized in heaven only amongst men?
+                Why is Mary not recognized in heaven only amongst men?
               </h2>
               <h3 className="px-2 my-2 text-[#444] text-sm italic border-l border-gray-500">
                 The ending of Mary’s mother hood at the cross.
               </h3>
               <div className="relative text-sm text-[#444]">
                 <div className="line-clamp-3 md:line-clamp-4">
-                  I want to share something regarding Mary being called “the Mother of God.” There are two very important instances where Jesus Himself addressed this issue.
-
-First, we all know the moment when Mary and His brothers came looking for Him, and someone said, “Your mother and brothers are outside.” Jesus replied, “Whoever does the will of My Father is My mother and my brother.” Right there, you can see Jesus beginning to separate Himself from an exclusively earthly and emotional understanding of motherhood.
-
-We also know that at age twelve He said to His parents, “Did you not know that I must be about My Father’s business?” Again, He was pointing beyond Mary to His heavenly Father.
-
-Some recognize Mary as the mother of Christ, as Catholics do. However, we see a clear distinction in how Jesus understood this relationship. Mary was His earthly mother—even a surrogate in the sense that Scripture says she was found IN THE WOMB with child by the Holy Spirit. All surrogate mothers are womb-only mothers.
-
-Scripture also says that children are formed in the womb. Formation speaks not only of the emotions, but of the soul and spirit coming together. Ultimately, Christ is eternal. Mary gave birth to His physical body as a surrogate mother, but not to His eternal identity as the Son of God.
-
-When Scripture speaks of “mother,” it is not always referring to a biological parent. Galatians 4 contrasts two Jerusalems—Jerusalem on earth, in bondage with her children, and Jerusalem above, who is free and called “the mother of us all.” This is spiritual language. Our spirits have a source—the Heavenly Mother!
-
-Isaiah says, “As a mother comforts, so will I comfort you—in Jerusalem.” Later, Jesus speaks of the Comforter, confirming this invisible-world dimension.
-
-The Holy Spirit is often described in nurturing terms. The spirit of wisdom is addressed as “she.” Even the Hebrew word Ruach (Spirit) is grammatically feminine. Adam even named his wife LIFE BECAUSE SHE “ruach” WAS THE BREADTH OF Life.
-
-On the cross, we see another separation. Jesus said to John, “Behold your mother,” and to Mary, “Behold your son.” In doing this, He was entrusting her care to John. But symbolically, it also marked the closing of that earthly mother-son relationship. Even at His physical death, He was emphasizing a transition. The motherhood is over!
-
-Death ends all relationships, so why are some Christians still making this relevant?
-
-Scripture says, “Though we once knew Christ in the flesh, we know Him so no longer.” The flesh cannot inherit the kingdom of God. Our earthly emotions and desires do not enter heaven—not able to engage the spirit world.
-
-Jesus addressed this—the time is coming where you won’t worship in Jerusalem, but in the spirit (invisible world) and in truth (confirmation of the word).
-
-Ecclesiastes 3:21 speaks of “the spirit of earth,” in man and beast, returning to the earth where it came from. Our emotions are from the earth.
-
-Ecclesiastes 12:7 speaks of another spirit—the spirit in us returns to God who gave it. On the cross Jesus said, “Father, into Your hands I commit My spirit.” His spirit went upward.
-
-This helps us understand the distinction between the earthly and the spiritual spirits.
-
-The earth, also called “creation,” produces physical life with an earthly spirit. In Genesis, God spoke to the earth, and the earth brought forth physical things. God don’t create anything physical, but as Galatians 4 clarifies, the earth, like Hagar in the flesh, produced earth things on God the Father Abraham’s command. It even compares Sarah to the Holy Spirit, who desired more spiritual children—after losing the first Adam.
-
-Genesis 2:7 says man became a living being when the Breadth of Life—Ruach—entered him. Man, existing already, was formed. Formation speaks of something beyond mere physical structure—it involves spirit and soul.
-
-In Genesis 1:27, we see man made with 1 image only—the emotions. Not the image of “them,” as Gen. 1:26 speaks of, but the image Him—one. It’s in Gen. 2:7 that man became 3 beings united in one body—when spirit (living) and soul (being) amalgamated to join emotions in the body.
-
-So when we speak of motherhood, we must distinguish between earthly continuity and spiritual origin. Mary was the surrogate/womb mother of Jesus’ physical body. But Christ—the Anointed One—is eternal. Anointed means The Holy Spirit upon His God the Son spirit. United.
-
-His soul—the son of man—was only born 2,000 years ago, but his flesh, of which Mary was connected to by love, not birth, as a surrogate, has since returned to the earth.
-
-If we worship Christ, we do not worship His former earthly body. That body was transformed. Scripture says we too shall be changed to be like Him. Therefore, we do not know Him merely according to the body of the emotion.
-
-Understanding this helps clarify.
+                  I want to share something regarding Mary being called “the
+                  Mother of God.” There are two very important instances where
+                  Jesus Himself addressed this issue. First, we all know the
+                  moment when Mary and His brothers came looking for Him, and
+                  someone said, “Your mother and brothers are outside.” Jesus
+                  replied, “Whoever does the will of My Father is My mother and
+                  my brother.” Right there, you can see Jesus beginning to
+                  separate Himself from an exclusively earthly and emotional
+                  understanding of motherhood. We also know that at age twelve
+                  He said to His parents, “Did you not know that I must be about
+                  My Father’s business?” Again, He was pointing beyond Mary to
+                  His heavenly Father. Some recognize Mary as the mother of
+                  Christ, as Catholics do. However, we see a clear distinction
+                  in how Jesus understood this relationship. Mary was His
+                  earthly mother—even a surrogate in the sense that Scripture
+                  says she was found IN THE WOMB with child by the Holy Spirit.
+                  All surrogate mothers are womb-only mothers. Scripture also
+                  says that children are formed in the womb. Formation speaks
+                  not only of the emotions, but of the soul and spirit coming
+                  together. Ultimately, Christ is eternal. Mary gave birth to
+                  His physical body as a surrogate mother, but not to His
+                  eternal identity as the Son of God. When Scripture speaks of
+                  “mother,” it is not always referring to a biological parent.
+                  Galatians 4 contrasts two Jerusalems—Jerusalem on earth, in
+                  bondage with her children, and Jerusalem above, who is free
+                  and called “the mother of us all.” This is spiritual language.
+                  Our spirits have a source—the Heavenly Mother! Isaiah says,
+                  “As a mother comforts, so will I comfort you—in Jerusalem.”
+                  Later, Jesus speaks of the Comforter, confirming this
+                  invisible-world dimension. The Holy Spirit is often described
+                  in nurturing terms. The spirit of wisdom is addressed as
+                  “she.” Even the Hebrew word Ruach (Spirit) is grammatically
+                  feminine. Adam even named his wife LIFE BECAUSE SHE “ruach”
+                  WAS THE BREADTH OF Life. On the cross, we see another
+                  separation. Jesus said to John, “Behold your mother,” and to
+                  Mary, “Behold your son.” In doing this, He was entrusting her
+                  care to John. But symbolically, it also marked the closing of
+                  that earthly mother-son relationship. Even at His physical
+                  death, He was emphasizing a transition. The motherhood is
+                  over! Death ends all relationships, so why are some Christians
+                  still making this relevant? Scripture says, “Though we once
+                  knew Christ in the flesh, we know Him so no longer.” The flesh
+                  cannot inherit the kingdom of God. Our earthly emotions and
+                  desires do not enter heaven—not able to engage the spirit
+                  world. Jesus addressed this—the time is coming where you won’t
+                  worship in Jerusalem, but in the spirit (invisible world) and
+                  in truth (confirmation of the word). Ecclesiastes 3:21 speaks
+                  of “the spirit of earth,” in man and beast, returning to the
+                  earth where it came from. Our emotions are from the earth.
+                  Ecclesiastes 12:7 speaks of another spirit—the spirit in us
+                  returns to God who gave it. On the cross Jesus said, “Father,
+                  into Your hands I commit My spirit.” His spirit went upward.
+                  This helps us understand the distinction between the earthly
+                  and the spiritual spirits. The earth, also called “creation,”
+                  produces physical life with an earthly spirit. In Genesis, God
+                  spoke to the earth, and the earth brought forth physical
+                  things. God don’t create anything physical, but as Galatians 4
+                  clarifies, the earth, like Hagar in the flesh, produced earth
+                  things on God the Father Abraham’s command. It even compares
+                  Sarah to the Holy Spirit, who desired more spiritual
+                  children—after losing the first Adam. Genesis 2:7 says man
+                  became a living being when the Breadth of Life—Ruach—entered
+                  him. Man, existing already, was formed. Formation speaks of
+                  something beyond mere physical structure—it involves spirit
+                  and soul. In Genesis 1:27, we see man made with 1 image
+                  only—the emotions. Not the image of “them,” as Gen. 1:26
+                  speaks of, but the image Him—one. It’s in Gen. 2:7 that man
+                  became 3 beings united in one body—when spirit (living) and
+                  soul (being) amalgamated to join emotions in the body. So when
+                  we speak of motherhood, we must distinguish between earthly
+                  continuity and spiritual origin. Mary was the surrogate/womb
+                  mother of Jesus’ physical body. But Christ—the Anointed One—is
+                  eternal. Anointed means The Holy Spirit upon His God the Son
+                  spirit. United. His soul—the son of man—was only born 2,000
+                  years ago, but his flesh, of which Mary was connected to by
+                  love, not birth, as a surrogate, has since returned to the
+                  earth. If we worship Christ, we do not worship His former
+                  earthly body. That body was transformed. Scripture says we too
+                  shall be changed to be like Him. Therefore, we do not know Him
+                  merely according to the body of the emotion. Understanding
+                  this helps clarify.
                 </div>
                 <div className="font-bold absolute right-0 bottom-0 bg-gray-200/60 px-3 hover:text-gray-700 hover:bg-gray-400 transition-all duration-75 ease-in">
                   Read more...
@@ -427,14 +490,23 @@ Understanding this helps clarify.
               <input
                 type="text"
                 placeholder="Your name"
+                ref={chatRef}
+                onChange={onChatNameChange}
                 className="w-[70%] outline-0 border-0 ring-0 py-3 px-2"
               />
-              <Button className="w-[30%] from-primary via-primary/60 to-primary border-0 bg-transparent bg-linear-to-r bg-size-[200%_auto] hover:bg-transparent hover:bg-position-[99%_center]">
-                <Link href="/main/AskAQuestion" className="w-full">
-                  Ask Away
-                </Link>
+              <Button
+                onClick={onSubmitAskChat}
+                type="button"
+                className="w-[30%] cursor-pointer from-primary via-primary/60 to-primary border-0 bg-transparent bg-linear-to-r bg-size-[200%_auto] hover:bg-transparent hover:bg-position-[99%_center]"
+              >
+                Ask Away
               </Button>
             </form>
+            {chatNameError && (
+              <div className="py-1 mt-2 mb-3 underline underline-offset-4 text-red-400 text-sm font-bold italic font-fira">
+                Kindly add a name
+              </div>
+            )}
             <div className="py-1 my-2 underline underline-offset-4 text-[#555]">
               You'll be directed to a chat window
             </div>

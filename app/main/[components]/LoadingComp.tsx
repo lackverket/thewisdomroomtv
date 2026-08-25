@@ -1,10 +1,11 @@
 "use client"
 
-import React from "react";
+import React, { useEffect } from "react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Spinner } from "@/components/ui/spinner";
 import { Separator } from "@/components/ui/separator";
+import Image from "next/image";
 
 export const TeachingSkeletonLoader = () => {
   return (
@@ -153,3 +154,28 @@ export const LoadingSpinner = () => {
     </div>
   );
 };
+
+export const AdminLoader = () => {
+  useEffect(() => {
+    document.body.classList.add("overflow-hidden");
+
+    return () =>  {
+      document.body.classList.remove("overflow-hidden")
+    }
+  }, [])
+  return (
+    <section className="w-full h-full absolute top-0 left-0 z-10 bg-white flex flex-col justify-center items-center">
+      <div className="flex flex-col justify-center items-center gap-5">
+        <div className="text-2xl flex space-x-3 items-center">
+          <Image src="/icon.png" width={25} height={25} alt="TheWisdomRoom logo"/>
+          <h1 className="font-bold font-fraunces">TheWisdomRoom</h1>
+        </div>
+        <div className="w-full flex justify-center items-center">
+          <div className="relative bg-gray-400 w-full rounded-lg h-1 overflow-hidden">
+            <div className="h-1 bg-gray-700 w-[50%] absolute top-0 left-0 rounded-lg animate-move-loader"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}

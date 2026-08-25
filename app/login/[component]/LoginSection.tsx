@@ -1,54 +1,56 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import {
   Field,
   FieldDescription,
   FieldGroup,
   FieldLabel,
   FieldSet,
-} from "@/components/ui/field"
-import { Input } from "@/components/ui/input"
-import Image from "next/image"
+} from "@/components/ui/field";
+import { Input } from "@/components/ui/input";
+import Image from "next/image";
 import { UserAuth } from "@/app/context/auth-context";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef } from "react";
 
 const LoginSection = () => {
   const { user, googleSignIn, logOut, emailPasswordSignIn } = UserAuth();
-   const emailInputRef = useRef<HTMLInputElement | null>(null)
-    const passwordInputRef = useRef<HTMLInputElement | null>(null)
-    const router = useRouter();
-    console.log(user?.displayName);
-  
-    const handleSignIn = async () => {
-      try {
-        await googleSignIn();
-      } catch (error) {
-        console.log(error);
-      }
-    };
+  const emailInputRef = useRef<HTMLInputElement | null>(null);
+  const passwordInputRef = useRef<HTMLInputElement | null>(null);
+  const router = useRouter();
+  console.log(user?.displayName);
 
-    const emailPasswordSignInHandler = async () => {
-   if (!emailInputRef.current?.value || !passwordInputRef.current?.value) return
+  const handleSignIn = async () => {
+    try {
+      await googleSignIn();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const emailPasswordSignInHandler = async () => {
+    if (!emailInputRef.current?.value || !passwordInputRef.current?.value)
+      return;
 
     try {
-      const response = await emailPasswordSignIn(emailInputRef.current?.value, passwordInputRef.current?.value)
-      console.log(response)
-      emailInputRef.current.value = ""
-      passwordInputRef.current.value = ""
-    } catch(error: any) {
-      console.log(error.message)
+      const response = await emailPasswordSignIn(
+        emailInputRef.current?.value,
+        passwordInputRef.current?.value,
+      );
+      // console.log(response)
+      emailInputRef.current.value = "";
+      passwordInputRef.current.value = "";
+    } catch (error: any) {
+      console.log(error.message);
     }
-  }
+  };
 
-  
-    useEffect(() => {
-      if (user) {
-        router.push("/main")
-      }
-    }, [user, router])
-  
+  useEffect(() => {
+    if (user) {
+      router.push("/main");
+    }
+  }, [user, router]);
 
   return (
     <FieldSet
@@ -101,18 +103,13 @@ const LoginSection = () => {
             className="w-full flex items-center gap-2"
             onClick={handleSignIn}
           >
-            <Image
-              src="/search.png"
-              width={16}
-              height={16}
-              alt="Google Logo"
-            />
+            <Image src="/search.png" width={16} height={16} alt="Google Logo" />
             <span>Continue with Google</span>
           </Button>
         </Field>
       </FieldGroup>
     </FieldSet>
-  )
-}
+  );
+};
 
-export default LoginSection
+export default LoginSection;

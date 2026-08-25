@@ -16,7 +16,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
-import { auth } from "../firebase";
+import { auth } from "../firebase/client";
 import { redirect, useRouter } from "next/navigation";
 
 interface AuthContextType {
@@ -26,7 +26,7 @@ interface AuthContextType {
   isLoading: Boolean | null;
   adminLogoutHandler: () => void;
   logTeacherIn: () => void;
-  verifyTeacherStatus: () => void;
+  verifyTeacherStatus: () => boolean;
   emailPasswordSignup: (email: string, password: string) => Promise<User>;
   emailPasswordSignIn: (email: string, password: string) => Promise<User>;
   verifyUserStatus: () => void;
@@ -117,6 +117,7 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
     if (!userIsAdmin) {
       router.push("/teacher/secure"); // ✅ use router, not redirect
     }
+    return userIsAdmin
   };
   useEffect(() => {
     setIsLoading(true);
