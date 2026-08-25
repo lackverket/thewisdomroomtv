@@ -29,7 +29,7 @@ const TeacherPage = () => {
     setIsLoading(false)
   }, [])
 
-  if (isLoading || isAdmin) {
+  if (isLoading || !isAdmin) {
     return <AdminLoader />
   }
   return (
