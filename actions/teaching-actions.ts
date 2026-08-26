@@ -10,6 +10,8 @@ interface createTeachingParams {
   imageColor: string;
   description: string;
   todaysWord: boolean;
+  priority: string;
+  priorityRank: number;
   content: string;
   comment: string;
 }
@@ -20,9 +22,10 @@ interface updateTeachingParams {
   image?: string;
   description?: string;
   mainContent?: string;
+  priority?: string;
+  priorityRank: number;
   comment?: string;
 }
-
 
 interface addQuestionParams {
   title: string;
@@ -33,7 +36,7 @@ interface addQuestionParams {
 }
 
 export const addQuestion = async (questionValues: addQuestionParams) => {
-  const { title, content, linkId, priority, priorityRank } = questionValues
+  const { title, content, linkId, priority, priorityRank } = questionValues;
   await db.questions.create({
     data: {
       title: title,
@@ -42,19 +45,18 @@ export const addQuestion = async (questionValues: addQuestionParams) => {
       priority: priority,
       priorityRank: priorityRank,
     },
-  })
-}
+  });
+};
 
-export const getQuestions = async (amount?: number) =>  {
+export const getQuestions = async (amount?: number) => {
   const allQuestions = await db.questions.findMany({
     orderBy: {
-      priorityRank: "asc"
+      priorityRank: "asc",
     },
-    take: amount ? amount : undefined
-  })
-  return allQuestions
-}
-
+    take: amount ? amount : undefined,
+  });
+  return allQuestions;
+};
 
 export const createTeaching = async ({
   title,
@@ -62,6 +64,8 @@ export const createTeaching = async ({
   imageColor,
   description,
   todaysWord,
+  priority,
+  priorityRank,
   content,
   comment,
 }: createTeachingParams) => {
@@ -70,18 +74,27 @@ export const createTeaching = async ({
       title: title,
       bannerColour: imageColor,
       description: description,
+      priority: priority,
+      priorityRank: priorityRank,
       mainContent: content,
       comment: comment,
     },
   });
 };
 
-
 export const getAllTeachings = async () => {
   const allTeachings = await db.teachings.findMany({
-    orderBy: {
+    orderBy: [
+      {
+        priorityRank: {
+          sort: "asc",
+          nulls: "last",
+        },
+      },
+      {
         updatedAt: "desc",
       },
+    ],
   });
   return allTeachings;
 };
@@ -96,10 +109,10 @@ export const getTeachingsTitleandDesc = async () => {
     },
     orderBy: {
       updatedAt: "desc",
-    }
-  })
-  return allTeachings
-}
+    },
+  });
+  return allTeachings;
+};
 
 export const getTeaching = async (id: string) => {
   let particularTeaching;
@@ -123,6 +136,8 @@ export const updateTeaching = async ({
   image,
   description,
   mainContent,
+  priority,
+  priorityRank,
   comment,
 }: updateTeachingParams) => {
   await db.teachings.update({
@@ -134,6 +149,8 @@ export const updateTeaching = async ({
       title: title,
       description: description,
       mainContent: mainContent,
+      priority: priority,
+      priorityRank: priorityRank,
       comment: comment,
     },
   });
@@ -149,12 +166,11 @@ export const getTeachingQty = async (quantity: number) => {
     });
 
     if (!fiveTeachings) throw new Error("Not enough Teachings");
-    return fiveTeachings
+    return fiveTeachings;
   } catch (error) {
     console.log(error);
   }
 };
-
 
 export const deleteTeaching = async (id: string) => {
   await db.teachings.delete({

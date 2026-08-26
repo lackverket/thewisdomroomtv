@@ -31,7 +31,7 @@ import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
 import { addQuestion } from "@/actions/teaching-actions";
 
-const SELECTOPTIONS = [
+export const SELECTOPTIONS = [
   {
     priority: "Very high",
     priorityRank: 1,

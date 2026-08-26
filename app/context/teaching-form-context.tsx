@@ -9,13 +9,14 @@ import {
 
 interface TeacherFormType {
   isPosted: Boolean | null;
-  // postTeaching: () => Promise<void>;
   postInitialContent: ({
     title,
     imageUrl,
     imageColor,
     description,
     todaysWord,
+    priority,
+    priorityRank,
   }: firstPostContent) => void;
   postSecondContent: ({ content, comment }: secondPostContent) => void;
   submitPostContent: () => Promise<void>;
@@ -33,6 +34,8 @@ interface firstPostContent {
   imageColor?: string;
   description?: string;
   todaysWord?: boolean;
+  priority?: string,
+  priorityRank?: number,
 }
 
 interface secondPostContent {
@@ -46,6 +49,8 @@ interface TeachingFormData {
   imageColor: string;
   description: string;
   todaysWord: boolean;
+  priority: string,
+  priorityRank: number,
   content: string;
   comment: string;
 }
@@ -62,8 +67,10 @@ export const TeacherFormContextProvider = ({
     imageColor,
     description,
     todaysWord,
+    priority,
+    priorityRank,
   }: firstPostContent) => {
-    setPostContent({ title, imageUrl, imageColor, description, todaysWord });
+    setPostContent({ title, imageUrl, imageColor, description, todaysWord, priority, priorityRank });
   };
 
   const postSecondContent = ({ content, comment }: secondPostContent) => {
@@ -73,7 +80,7 @@ export const TeacherFormContextProvider = ({
   };
 
   const submitPostContent = async () => {
-    console.log(postContent);
+    // console.log(postContent);
     if (
       !postContent.title ||
       !postContent.imageColor ||
