@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import AboutUsContent from "./AboutUsContent";
 const AboutUsSection = () => {
   return (
     <section className="mt-5 mb-10 py-5 px-7">
@@ -28,16 +29,8 @@ const AboutUsSection = () => {
           <div className="font-fraunces  font-bold text-[1.1rem] underline underline-offset-4">
             TheWisdomRoom
           </div>
-          <div className="text-[#555] max-sm:text-[0.6rem] line-clamp-3 relative">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit
-            voluptates nulla voluptatibus accusamus porro nam. Eos provident
-            inventore recusandae laboriosam maiores amet! Aspernatur, rerum
-            tempore aperiam vero illo quia laborum repudiandae molestiae
-            consectetur reprehenderit accusantium ipsum perferendis quidem harum
-            amet facere fugiat, soluta ad architecto quisquam recusandae,
-            delectus qui! Sit laudantium delectus eos at dicta laborum assumenda
-            blanditiis pariatur provident voluptas maxime aperiam id voluptatum
-            temporibus, perferendis voluptatem laboriosam nobis?
+          <div className="text-[#555] max-sm:text-[0.8rem] line-clamp-3 relative">
+            <AboutUsContent />
             <Link href="/main/aboutus" className="absolute bottom-0 right-0 px-2 bg-gray-50/50 font-bold font-hanken">
               Read more...
             </Link>

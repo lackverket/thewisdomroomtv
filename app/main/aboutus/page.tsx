@@ -2,6 +2,7 @@ import IndexNavigation from "@/components/IndexNavigation";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import AboutUsContent from "../[components]/AboutUsContent";
 
 const AboutUsPage = () => {
   return (
@@ -22,15 +23,7 @@ const AboutUsPage = () => {
               />
             </div>
             <div className="">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
-              reprehenderit iste, cum deserunt dolorum rem expedita magni nisi
-              ducimus ut, excepturi totam dignissimos quam doloremque dolores
-              sapiente? Similique, temporibus ut aut asperiores libero quo ullam
-              perspiciatis debitis. Veniam, qui molestias molestiae illum nulla
-              aspernatur eos obcaecati voluptatem corrupti ipsam tempore, minus
-              quaerat earum optio officia culpa labore accusamus ab! Eveniet
-              placeat voluptates temporibus impedit reprehenderit itaque cumque
-              adipisci voluptate odio!
+             <AboutUsContent />
             </div>
           </div>
         </div>
