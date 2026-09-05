@@ -29,7 +29,7 @@ const AboutUsSection = () => {
           <div className="font-fraunces  font-bold text-[1.1rem] underline underline-offset-4">
             TheWisdomRoom
           </div>
-          <div className="text-[#555] max-sm:text-[0.8rem] line-clamp-3 relative">
+          <div className="text-[#555] max-sm:text-[0.8rem] line-clamp-5 sm:line-clamp-3 relative">
             <AboutUsContent />
             <Link href="/main/aboutus" className="absolute bottom-0 right-0 px-2 bg-gray-50/50 font-bold font-hanken">
               Read more...
